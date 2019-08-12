@@ -29,7 +29,10 @@ import (
 	"time"
 )
 
-const httpClientTimeout = 30 * time.Second
+const (
+	httpClientTimeout = 30 * time.Second
+	circleBaseURL     = "https://circleci.com/api/v1.1"
+)
 
 // Client contains an `http.Client` and a URL.
 type Client struct {
@@ -52,9 +55,9 @@ func NewClient(token string) (*Client, error) {
 		Timeout:   httpClientTimeout,
 	}
 
-	uri, err := url.Parse("https://circleci.com/api/v1.1")
+	uri, err := url.Parse(circleBaseURL)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to parse the CircleCI base URL")
+		panic(err)
 	}
 
 	params := url.Values{}

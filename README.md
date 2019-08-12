@@ -44,6 +44,8 @@ The CLI expose 4 commands: list, get, set and del.
 The flag `--help` or `-h` can give you more information about each command.
 
 ## Build
+
+Building the project requires go >= 1.12.x
 You can build the service with:
 
     make build

@@ -31,7 +31,7 @@ import (
 
 const httpClientTimeout = 30 * time.Second
 
-// Client contains anm `http.Client` and a URL.
+// Client contains an `http.Client` and a URL.
 type Client struct {
 	http *http.Client
 	url  *url.URL

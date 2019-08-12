@@ -1,8 +1,8 @@
 # CircleCI Environment Variables Management
 
 ## Abstract
-When the amount of CircleCI project grows it's can be complicate to create, update
-or update environment variables for each project. And sometime you would add
+When the amount of CircleCI projects grows it's can be complicate to create, update
+or delete environment variables for each project. And sometime you would add
 environment variable without frontend tracking. This CLI wrap the CircleCI API
 to manage the environment variable.
 

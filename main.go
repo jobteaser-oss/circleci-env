@@ -27,10 +27,10 @@ var token string
 
 func main() {
 	cli := cmdline.New()
-	cli.AddOption("t", "token", "", "circleci token")
+	cli.AddOption("t", "token", "value", "circleci token")
 	cli.AddOption("v", "vcs-type", "github", "the vcs type of the project")
-	cli.AddOption("u", "username", "", "the username who host the project")
-	cli.AddOption("p", "project", "", "the circleci project name")
+	cli.AddOption("u", "username", "value", "the username who host the project")
+	cli.AddOption("p", "project", "value", "the circleci project name")
 	cli.AddCommand("list", "list env")
 	cli.AddCommand("get", "get env")
 	cli.AddCommand("set", "set env")

@@ -18,7 +18,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/galdor/go-cmdline"
+	"github.com/jobteaser-oss/go-cmdline"
 	"github.com/jobteaser/circleci-env/circleci"
 	"os"
 )

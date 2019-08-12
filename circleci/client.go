@@ -108,7 +108,10 @@ func (client *Client) ListEnv(vcsType, username, project string) ([]*Env, error)
 	}
 
 	var envs []*Env
-	json.NewDecoder(resp.Body).Decode(&envs)
+	err = json.NewDecoder(resp.Body).Decode(&envs)
+	if err != nil {
+		return nil, errors.Wrap(err, "failed to decoded HTTP request response")
+	}
 	return envs, nil
 }
 

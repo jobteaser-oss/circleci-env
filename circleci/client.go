@@ -29,6 +29,8 @@ import (
 	"time"
 )
 
+const httpClientTimeout = 30 * time.Second
+
 // Client contains anm `http.Client` and a URL.
 type Client struct {
 	http *http.Client
@@ -38,18 +40,16 @@ type Client struct {
 // NewClient returns a pointer of `Client` struct with timeout and
 // authentication properly configured.
 func NewClient(token string) (*Client, error) {
-	const timeout = 5 * time.Second
-
-	dialer := net.Dialer{Timeout: timeout}
+	dialer := net.Dialer{Timeout: httpClientTimeout}
 
 	transport := http.Transport{
 		Dial:                dialer.Dial,
-		TLSHandshakeTimeout: timeout,
+		TLSHandshakeTimeout: httpClientTimeout,
 	}
 
 	client := http.Client{
 		Transport: &transport,
-		Timeout:   timeout,
+		Timeout:   httpClientTimeout,
 	}
 
 	uri, err := url.Parse("https://circleci.com/api/v1.1")

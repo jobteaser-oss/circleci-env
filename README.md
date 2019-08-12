@@ -9,7 +9,7 @@ to manage the environment variable.
 ## Usage
 The CLI expose 4 commands: list, get, set and del.
 
-    # list the environment variables in a project
+List the environment variables in a project:
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -17,7 +17,7 @@ The CLI expose 4 commands: list, get, set and del.
         --project someproject \
         list
 
-    # get a environment variable in a project
+Get a environment variable in a project:
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -25,7 +25,7 @@ The CLI expose 4 commands: list, get, set and del.
         --project someproject \
         get FOO
 
-    # set (create or update) a environment variable in a project
+Set (create or update) a environment variable in a project:
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -33,7 +33,7 @@ The CLI expose 4 commands: list, get, set and del.
         --project someproject \
         set FOO BAR
 
-    # delete a environment variable in a project
+Delete a environment variable in a project:
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \

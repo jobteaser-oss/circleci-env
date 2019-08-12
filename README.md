@@ -40,3 +40,12 @@ The CLI expose 4 commands: list, get, set and del.
         --username jobteaser-oss \
         --project someproject \
         del FOO
+
+The flag `--help` or `-h` can give you more information about each command.
+
+## Build
+You can build the service with:
+
+    make build
+
+The final binary is available in the bin directory.

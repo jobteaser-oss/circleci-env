@@ -23,11 +23,12 @@ import (
 	"os"
 )
 
-var token string
-
 func main() {
+	circleToken := os.Getenv("CIRCLE_TOKEN")
+
 	cli := cmdline.New()
 	cli.AddOption("t", "token", "value", "circleci token")
+	cli.SetOptionDefault("t", circleToken)
 	cli.AddOption("v", "vcs-type", "github", "the vcs type of the project")
 	cli.AddOption("u", "username", "value", "the username who host the project")
 	cli.AddOption("p", "project", "value", "the circleci project name")
@@ -37,7 +38,7 @@ func main() {
 	cli.AddCommand("del", "delete env")
 	cli.Parse(os.Args)
 
-	if !cli.IsOptionSet("t") {
+	if cli.OptionValue("t") == "" {
 		fmt.Println("error: the circle token is required")
 		os.Exit(1)
 	}

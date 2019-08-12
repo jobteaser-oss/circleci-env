@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-// Package circleci expose function to manage environment variable in
+// Package circleci expose functions to manage environment variables in
 // CircleCI project.
 package circleci // import "github.com/jobteaser-oss/circleci-env"
 

@@ -10,6 +10,7 @@ to manage the environment variable.
 The CLI expose 4 commands: list, get, set and del.
 
 List the environment variables in a project:
+
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -18,6 +19,7 @@ List the environment variables in a project:
         list
 
 Get a environment variable in a project:
+
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -26,6 +28,7 @@ Get a environment variable in a project:
         get FOO
 
 Set (create or update) a environment variable in a project:
+
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -34,6 +37,7 @@ Set (create or update) a environment variable in a project:
         set FOO BAR
 
 Delete a environment variable in a project:
+
     $> circleci-env \
         --token $CIRCLECI_TOKEN \
         --vcs-type github \
@@ -44,8 +48,8 @@ Delete a environment variable in a project:
 The flag `--help` or `-h` can give you more information about each command.
 
 ## Build
+Building the project requires `go >= 1.12.x`.
 
-Building the project requires go >= 1.12.x
 You can build the service with:
 
     make build

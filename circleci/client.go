@@ -76,9 +76,9 @@ type Env struct {
 	Value string `json:"value"`
 }
 
-// ListEnv returns four 'x' characters plus the last four ASCII characters
-// of the value, consistent with the display of environment variable values
-// in the CircleCI website.
+// ListEnv lists the environment variables, with names and obfuscated values.
+// Note: obfuscation is consistent with what is done on the CircleCI UI: four
+// x characters, followed by the last four characters of the actual value.
 func (client *Client) ListEnv(vcsType, username, project string) ([]*Env, error) {
 	uri := *client.url
 	uri.Path = fmt.Sprintf("%s/project/%s/%s/%s/envvar",

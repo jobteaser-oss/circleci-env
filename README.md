@@ -6,6 +6,12 @@ or delete environment variables for each project. And sometime you would add
 environment variable without frontend tracking. This CLI wrap the CircleCI API
 to manage the environment variable.
 
+## Install
+
+Run the following command:
+
+    $> go get -u github.com/jobteaser-oss/circleci-env
+
 ## Usage
 The CLI expose 4 commands: list, get, set and del.
 

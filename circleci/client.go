@@ -21,8 +21,8 @@ package circleci // import "github.com/jobteaser-oss/circleci-env"
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"fmt"
-	"github.com/pkg/errors"
 	"net"
 	"net/http"
 	"net/url"
@@ -90,13 +90,13 @@ func (client *Client) ListEnv(vcsType, username, project string) ([]*Env, error)
 
 	req, err := http.NewRequest("GET", uri.String(), nil)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to build the HTTP request")
+		return nil, fmt.Errorf("failed to build the HTTP request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
 
 	resp, err := client.http.Do(req)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to execute HTTP request to CircleCI API")
+		return nil, fmt.Errorf("failed to execute HTTP request to CircleCI API: %w", err)
 	}
 	defer resp.Body.Close()
 
@@ -110,7 +110,7 @@ func (client *Client) ListEnv(vcsType, username, project string) ([]*Env, error)
 	var envs []*Env
 	err = json.NewDecoder(resp.Body).Decode(&envs)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to decoded HTTP request response")
+		return nil, fmt.Errorf("failed to decoded HTTP request response: %w", err)
 	}
 	return envs, nil
 }
@@ -128,13 +128,13 @@ func (client *Client) GetEnv(vcsType, username, project, key string) (*Env, erro
 
 	req, err := http.NewRequest("GET", uri.String(), nil)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to build the HTTP request")
+		return nil, fmt.Errorf("failed to build the HTTP request: %w", err)
 	}
 	req.Header.Set("Accept", "application/json")
 
 	resp, err := client.http.Do(req)
 	if err != nil {
-		return nil, errors.Wrap(err, "failed to execute HTTP request to CircleCI API")
+		return nil, fmt.Errorf("failed to execute HTTP request to CircleCI API: %w", err)
 
 	}
 	defer resp.Body.Close()
@@ -166,18 +166,18 @@ func (client *Client) SetEnv(vcsType, username, project, key, value string) erro
 	env := Env{Key: key, Value: value}
 	body, err := json.Marshal(env)
 	if err != nil {
-		return errors.Wrap(err, "failed to marshal the JSON payload")
+		return fmt.Errorf("failed to marshal the JSON payload: %w", err)
 	}
 
 	req, err := http.NewRequest("POST", uri.String(), bytes.NewBuffer(body))
 	if err != nil {
-		return errors.Wrap(err, "failed to build the HTTP request")
+		return fmt.Errorf("failed to build the HTTP request: %w", err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	resp, err := client.http.Do(req)
 	if err != nil {
-		return errors.Wrap(err, "failed to execute HTTP request to CircleCI API")
+		return fmt.Errorf("failed to execute HTTP request to CircleCI API: %w", err)
 	}
 	defer resp.Body.Close()
 
@@ -206,13 +206,13 @@ func (client *Client) DeleteEnv(vcsType, username, project, key string) error {
 
 	req, err := http.NewRequest("DELETE", uri.String(), nil)
 	if err != nil {
-		return errors.Wrap(err, "failed to build the HTTP request")
+		return fmt.Errorf("failed to build the HTTP request: %w", err)
 	}
 	req.Header.Set("Content-Type", "application/json")
 
 	resp, err := client.http.Do(req)
 	if err != nil {
-		return errors.Wrap(err, "failed to execute HTTP request to CircleCI API")
+		return fmt.Errorf("failed to execute HTTP request to CircleCI API: %w", err)
 	}
 	defer resp.Body.Close()
 

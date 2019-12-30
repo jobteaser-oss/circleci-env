@@ -48,7 +48,7 @@ Delete a environment variable in a project:
 The flag `--help` or `-h` can give you more information about each command.
 
 ## Build
-Building the project requires `go >= 1.12.x`.
+Building the project requires `go >= 1.13.x`.
 
 You can build the service with:
 

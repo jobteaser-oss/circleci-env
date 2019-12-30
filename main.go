@@ -18,8 +18,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/jobteaser-oss/circleci-env/circleci"
 	"github.com/jobteaser-oss/go-cmdline"
-	"github.com/jobteaser/circleci-env/circleci"
 	"os"
 )
 

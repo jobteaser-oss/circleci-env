@@ -1,4 +1,4 @@
-module github.com/jobteaser/circleci-env
+module github.com/jobteaser-oss/circleci-env
 
 go 1.12
 

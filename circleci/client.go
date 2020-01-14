@@ -16,7 +16,7 @@
 
 // Package circleci expose functions to manage environment variables in
 // a CircleCI project.
-package circleci // import "github.com/jobteaser-oss/circleci-env"
+package circleci // import "github.com/jobteaser-oss/circleci-env/circleci"
 
 import (
 	"bytes"
